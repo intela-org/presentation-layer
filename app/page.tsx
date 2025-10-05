@@ -1,11 +1,9 @@
-import { BuildingStorefrontIcon } from "@heroicons/react/24/outline";
+import React from 'react'
 
-const Page = () => {
+const page = () => {
   return (
-    <div>
-      <BuildingStorefrontIcon className="h-6 w-6 text-gray-700" />
-    </div>
-  );
-};
+    <div></div>
+  )
+}
 
-export default Page;
+export default page
