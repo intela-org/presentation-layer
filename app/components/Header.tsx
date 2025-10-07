@@ -6,7 +6,6 @@ import React from "react";
 const Header = () => {
   return (
     <header className="flex items-center justify-between bg-gradient-to-b from-[#faf7ff] to-[#ece6f9] border-b border-purple-300 w-full h-16 px-7 shadow-sm">
-      {/* Search + Button */}
       <a href="http://boburov.uz/" className="flex items-center gap-3">
         <img
           src="https://avatars.githubusercontent.com/u/137058543?v=4"
@@ -17,7 +16,7 @@ const Header = () => {
         />
         <h1 className="font-mono text-purple-700 text-lg tracking-widest leading-5  ">
           Created by{" "}
-          <span className="bg-gradient-to-r from-purple-600 to-pink-800 bg-clip-text text-transparent font-extrabold">
+          <span className="bg-purple-700 bg-clip-text text-transparent font-extrabold">
             Shukurullo
           </span>
         </h1>
@@ -30,15 +29,12 @@ const Header = () => {
         />
         <button
           type="submit"
-          className="px-6 h-11 rounded-2xl bg-purple-600 text-white font-medium hover:bg-purple-700 transition-all duration-200 shadow-sm"
+          className="px-6 h-11 rounded-2xl bg-purple-800 text-white font-medium hover:bg-purple-600 transition-all duration-200 shadow-sm"
         >
           Submit
         </button>
       </form>
 
-      {/* Created by */}
-
-      {/* Icons */}
       <div className="flex items-center gap-5">
         <a
           href="#"
