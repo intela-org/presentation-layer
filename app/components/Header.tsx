@@ -1,5 +1,6 @@
 import { Bell, MessageCircle } from "lucide-react";
 import Image from "next/image";
+import grape from "@/public/grape.jpg";
 import Link from "next/link";
 import React from "react";
 
@@ -15,13 +16,13 @@ const Header = () => {
           className="rounded-full shadow-md border border-purple-400"
         />
         <h1 className="font-mono text-purple-700 text-lg tracking-widest leading-5  ">
-          Created by{" "}
+          Created by <br />
           <span className="bg-purple-700 bg-clip-text text-transparent font-extrabold">
             Shukurullo
           </span>
         </h1>
       </a>
-      <form className="flex items-center w-full gap-3 pr-5">
+      <form className="flex items-center w-1/2 gap-3 pr-5">
         <input
           type="text"
           placeholder="Type something..."
@@ -34,6 +35,17 @@ const Header = () => {
           Submit
         </button>
       </form>
+
+      <h1 className="flex items-center gap-2 px-4 py-1 bg-white rounded-3xl shadow-md">
+        <span className="font-bold text-purple-700 text-lg">128</span>
+        <Image
+          src={grape}
+          alt="Carrot"
+          width={38}
+          height={38}
+          className="object-contain"
+        />
+      </h1>
 
       <div className="flex items-center gap-5">
         <a

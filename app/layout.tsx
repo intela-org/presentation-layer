@@ -60,13 +60,7 @@ export default function RootLayout({
   return (
     <html lang="uz">
       <body>
-        <div className="flex w-full h-full">
-          <Sidebar />
-          <div className="w-full">
-            <Header />
-            <main>{children}</main>
-          </div>
-        </div>
+        <main>{children}</main>
       </body>
     </html>
   );

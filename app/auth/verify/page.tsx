@@ -1,13 +1,13 @@
 "use client"
 import banner from "@/public/banner.jpg"
 import Image from "next/image"
-import SigninForm from "../components/SigninForm"
+import VerifyCodePage from "../components/VerifyForm"
 
 const page = () => {
   return (
-    <div className='bg-purple-200 w-full min-h-screen py-2 px-3 grid grid-cols-2 gap-5'>
+    <div className='bg-purple-200 w-full min-h-screen rounded-xl py-2 px-3 grid grid-cols-2 gap-5'>
       <Image src={banner} alt="banner" className="h-[98vh] rounded-xl"/>
-      <SigninForm/>
+      <VerifyCodePage/>
     </div>
   )
 }

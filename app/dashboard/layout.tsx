@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/styles/globals.css";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 
 export const metadata: Metadata = {
   title: "Intela – Onlayn o‘quv platformasi | Zamonaviy bilim markazi",
@@ -55,5 +57,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <div className="flex w-full h-full">
+      <Sidebar />
+      <div className="w-full">
+        <Header />
+        <main>{children}</main>
+      </div>
+    </div>
+  );
 }

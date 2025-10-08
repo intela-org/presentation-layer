@@ -10,8 +10,10 @@ import nothing from "@/public/badge/nothing.png";
 import neverGiveUp from "@/public/badge/never_give_up.png";
 import nightOwl from "@/public/badge/nigt_owl.svg";
 import twoHundredPulIq from "@/public/badge/200_pul_iq.png";
+import useAuth from "@/hooks/useAuth";
 
 const UserProfile = () => {
+  useAuth();
   const [activity, setActivity] = useState<{ date: Date; level: string }[]>([]);
 
   useEffect(() => {
@@ -76,7 +78,8 @@ const UserProfile = () => {
             </h2>
             <p className="text-purple-600 font-medium">@frontendmaster</p>
             <p className="text-gray-600 mt-1 text-sm">
-              Frontend developer 🚀 | React.js & TailwindCSS ustasi 💜 | O‘qituvchi
+              Frontend developer 🚀 | React.js & TailwindCSS ustasi 💜 |
+              O‘qituvchi
             </p>
             <div className="flex flex-wrap gap-4 mt-3 text-gray-600 text-sm">
               <div className="flex items-center gap-2">
@@ -93,7 +96,9 @@ const UserProfile = () => {
 
         {/* Stat blok */}
         <div className="flex flex-wrap gap-4 justify-between bg-purple-50 rounded-xl p-4 text-purple-700 font-semibold text-sm shadow-inner">
-          <div>🔥 Faollik darajasi: <span className="font-bold">Yuqori</span></div>
+          <div>
+            🔥 Faollik darajasi: <span className="font-bold">Yuqori</span>
+          </div>
           <div>🏅 Badges: {badges.length}</div>
           <div>📅 Yil: {new Date().getFullYear()}</div>
         </div>
