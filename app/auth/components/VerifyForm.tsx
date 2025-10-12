@@ -18,14 +18,28 @@ export default function VerifyCodePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const clear_phone = String(localStorage.getItem("tel"));
-  const phone = clear_phone.split("+").join("").split("-").join("");
+  const [phone, setPhone] = useState<string>("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const clear_phone = localStorage.getItem("tel");
+      if (clear_phone) {
+        const formatted = clear_phone
+          .toString()
+          .split("+")
+          .join("")
+          .split("-")
+          .join("");
+        setPhone(formatted);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const idx = digits.findIndex((d) => d === "");
     const focusIdx = idx === -1 ? digits.length - 1 : idx;
     inputsRef.current[focusIdx]?.focus();
-  }, []);
+  }, [digits]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, i: number) => {
     setError(null);
@@ -100,10 +114,12 @@ export default function VerifyCodePage() {
       setTimeout(() => {
         router.push("/dashboard");
       }, 900);
-    } catch (err: any) {
-      setError(err.message || "Kod tekshirilishda xatolik yuz berdi");
-    } finally {
-      setLoading(false);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Kod tekshirilishda xatolik yuz berdi");
+      } else {
+        setError("Noma'lum xatolik yuz berdi");
+      }
     }
   };
 
@@ -208,8 +224,8 @@ export default function VerifyCodePage() {
         </form>
 
         <p className="text-center mt-4 text-xs text-gray-500">
-          Agar SMS kelmasa, operatoringizni tekshiring yoki loyiha ma'muriga
-          murojaat qiling.
+          {`Agar SMS kelmasa, operatoringizni tekshiring yoki loyiha ma'muriga
+          murojaat qiling.`}
         </p>
       </div>
     </div>

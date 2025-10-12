@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Mail, Phone, Award, Star, Trophy, Crown } from "lucide-react";
+import { Mail, Phone, } from "lucide-react";
 import Image from "next/image";
 
 import badgePng from "@/public/badge/badge.png";

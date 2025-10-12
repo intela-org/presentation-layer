@@ -63,9 +63,14 @@ const SignUpForm = () => {
       console.log("✅ Server javobi:", res);
       router.push("verify");
       alert("Ro‘yxatdan o‘tish muvaffaqiyatli ✅");
-    } catch (err: any) {
-      console.error("❌ Xatolik:", err);
-      setError("Ro‘yxatdan o‘tishda xatolik yuz berdi.");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error("❌ Xatolik:", err.message);
+        setError(err.message);
+      } else {
+        console.error("❌ Noma’lum xatolik:", err);
+        setError("Ro‘yxatdan o‘tishda xatolik yuz berdi.");
+      }
     }
   };
 
@@ -166,12 +171,12 @@ const SignUpForm = () => {
             className="mt-4 w-full px-6 py-3 bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-800 hover:to-purple-950 text-white rounded-xl text-md font-semibold flex items-center justify-center gap-3 transition-all duration-300 active:scale-95 shadow-lg"
           >
             <LogIn size={20} />
-            Ro‘yxatdan o‘tish
+            {`Ro‘yxatdan o‘tish`}
           </button>
         </form>
 
         <p className="text-center text-sm text-gray-600 mt-6">
-          Hisobingiz bormi?{" "}
+          {`Hisobingiz bormi?`}
           <Link
             href="/auth/signin"
             className="text-purple-700 font-semibold hover:underline hover:text-purple-900 transition-all"

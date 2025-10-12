@@ -1,4 +1,3 @@
-import { profile } from "console";
 import { api_endpoint } from "../endpoint";
 import api from "./api.service";
 
@@ -23,9 +22,6 @@ export const auth_service = {
     return res.data;
     
   },
-
-  // profile:
-
   verify: async (data: { phone: string; code: number }) => {
     const res = await api.post(api_endpoint.verify, data);
     const tokens = res.data;

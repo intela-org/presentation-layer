@@ -2,9 +2,9 @@
 import useAuth from "@/hooks/useAuth";
 import React from "react";
 
-const page = () => {
+const Page = () => {
   useAuth();
   return <div></div>;
 };
 
-export default page;
+export default Page;

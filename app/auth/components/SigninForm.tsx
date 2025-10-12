@@ -75,17 +75,19 @@ export default function SignInPage() {
 
       const data = await res;
       console.log(data);
-      
+
       if (data.access_token)
         localStorage.setItem("access_token", data.access_token);
       if (data.refresh_token)
         localStorage.setItem("refresh_token", data.refresh_token);
 
       router.push("/dashboard");
-    } catch (err: any) {
-      setError(err.message || "Tanish bo'lmagan xatolik yuz berdi.");
-    } finally {
-      setLoading(false);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Tanish bo‘lmagan xatolik yuz berdi.");
+      }
     }
   };
 
@@ -169,9 +171,9 @@ export default function SignInPage() {
           </button>
 
           <p className="text-center text-sm text-gray-600 mt-3">
-            Hisobingiz yo‘qmi?{" "}
+            {`Hisobingiz yo‘qmi?`}
             <Link href="/auth/signup" className="text-purple-700 font-semibold">
-              Ro'yxatdan o'tish
+              {`Ro'yxatdan o'tish`}
             </Link>
           </p>
         </form>

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./styles/globals.css";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
 
 export const metadata: Metadata = {
   title: "Intela – Onlayn o‘quv platformasi | Zamonaviy bilim markazi",
