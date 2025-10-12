@@ -59,6 +59,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uz">
+      <head>
+        {/* Google Search Console uchun meta teg */}
+        <meta
+          name="google-site-verification"
+          content="UGdzHh7wK83o3h33nCBdBmTeES_HEaVolZ4A8HnmK-I"
+        />
+      </head>
       <body>
         <main>{children}</main>
       </body>
